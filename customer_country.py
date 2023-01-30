@@ -9,14 +9,16 @@ from pandas import DataFrame
 df = pd.read_csv('customers.csv')
 
 info_dict = {}
-
 info_dict["Name"] = []
 info_dict["Country"] = []
 
+# run through info within the columns by zipping them together
+# zip_obj: (first, last, country)
 for info in zip(df["FirstName"], df["LastName"], df["Country"]):
     info_dict["Name"].append(f'{info[0]} {info[1]}')
     info_dict["Country"].append(info[2])
 
+# put dictionary into a new df object
 df2 = DataFrame(data=info_dict)
 
 df2.to_csv(path_or_buf="customer_country.csv", index=False)
