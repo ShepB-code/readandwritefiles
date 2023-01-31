@@ -10,4 +10,4 @@ df = pd.read_csv("EmployeePay.csv")
 
 # print out a report
 for fName, lName, salary, bonus in zip(df['EmpFName'], df['EmpLName'], df['Salary'], df['Bonus']):
-    print(f'{fName} {lName} has a salary of ${salary} with a bonus of {bonus}')
+    print(f'{fName} {lName} has a salary of ${round(salary + (salary * bonus), 2)} including the bonus of {bonus * 100}%')
